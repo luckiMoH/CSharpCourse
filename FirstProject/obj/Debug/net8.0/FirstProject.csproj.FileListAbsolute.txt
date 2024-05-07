@@ -1,0 +1,14 @@
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\bin\Debug\net8.0\FirstProject.exe
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\bin\Debug\net8.0\FirstProject.deps.json
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\bin\Debug\net8.0\FirstProject.runtimeconfig.json
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\bin\Debug\net8.0\FirstProject.dll
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\bin\Debug\net8.0\FirstProject.pdb
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\FirstProject.GeneratedMSBuildEditorConfig.editorconfig
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\FirstProject.AssemblyInfoInputs.cache
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\FirstProject.AssemblyInfo.cs
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\FirstProject.csproj.CoreCompileInputs.cache
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\FirstProject.dll
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\refint\FirstProject.dll
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\FirstProject.pdb
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\FirstProject.genruntimeconfig.cache
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\ref\FirstProject.dll
