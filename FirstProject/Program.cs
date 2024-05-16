@@ -208,6 +208,20 @@ namespace FirstProject
                 }
             }
             Console.WriteLine("lowest" + lowest);
+
+            Console.WriteLine("----ENUMS----");
+            Console.WriteLine("What is your gender? 1 - Male, 2 - Female");
+            string userInputGender = Console.ReadLine();
+            Gender userGender = (Gender)Enum.Parse(typeof(Gender), userInputGender);
+
+            if (userGender == Gender.Male)
+            {
+                Console.WriteLine("Only women are allowed");
+
+            } else
+            {
+                Console.WriteLine("Hi");
+            }
         }
     }
 }
