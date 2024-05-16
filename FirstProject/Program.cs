@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace FirstProject
 {
@@ -138,7 +139,75 @@ namespace FirstProject
 
             string bmi = BMICalculator.CalculatorBMI(height, weight);
             Console.WriteLine("Kalkulator BMI");
-             Console.WriteLine(bmi);
+            Console.WriteLine(bmi);
+
+            Console.WriteLine("--------Tablice");
+            string[] cars = { "Volvo", "BMW", "Skoda", "Audi" };
+            Console.WriteLine(cars[1]);
+            int arrayLength = cars.Length;
+            Console.WriteLine(arrayLength);
+
+            Console.WriteLine("----Pętla while----");
+            int i = 0;
+            while (i < arrayLength)
+            {
+                Console.WriteLine(cars[i]);
+                i++;
+            }
+            Console.WriteLine("----Pętla do while----");
+
+            Console.WriteLine("to exic, type 'x'");
+            string userInput;
+            do
+            {
+                userInput = Console.ReadLine();
+                Console.WriteLine($"Echo : {userInput}");
+            } while (userInput != "x");
+
+            Console.WriteLine("----Pętla for----");
+
+            for (int y = 0; y < arrayLength; y++)
+            {
+                Console.WriteLine(cars[y]);
+            }
+
+            Console.WriteLine("----Pętla foreach----");
+
+            foreach (string car in cars)
+            {
+                Console.WriteLine(car);
+                if (car == "Skoda")
+                {
+                    Console.WriteLine($"{car} jest fajną marką");
+                    break;
+                }
+            }
+
+            Console.WriteLine("----ćwiczenie----");
+
+
+            int[] temp = { 7, 11, 5, 16, 8 };
+            int highest = temp[0];
+            int lowest = temp[0];
+
+            for (i = 0; i < temp.Length; i++)
+            {
+                if (temp[i] > highest)
+                {
+                    highest = temp[i];
+                }
+            }
+            Console.WriteLine("highest" + highest);
+
+            foreach (int te in temp)
+            {
+                if (te < lowest)
+                {
+                    lowest = te;
+                    break;
+                }
+            }
+            Console.WriteLine("lowest" + lowest);
         }
     }
 }

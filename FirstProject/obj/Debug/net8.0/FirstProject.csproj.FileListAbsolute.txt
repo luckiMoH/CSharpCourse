@@ -12,3 +12,4 @@ E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\refint\First
 E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\FirstProject.pdb
 E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\FirstProject.genruntimeconfig.cache
 E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\ref\FirstProject.dll
+E:\Programowanie\4.Nauka\CSharpCourse\FirstProject\obj\Debug\net8.0\FirstProject.sourcelink.json
