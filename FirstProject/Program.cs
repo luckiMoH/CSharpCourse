@@ -222,6 +222,10 @@ namespace FirstProject
             {
                 Console.WriteLine("Hi");
             }
+
+            int? favNum = null;
+
+            Console.WriteLine(favNum.HasValue ? favNum.Value.ToString() : "");
         }
     }
 }
