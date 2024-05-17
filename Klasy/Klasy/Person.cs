@@ -9,9 +9,22 @@ namespace Klasy
     internal class Person
     {
         public string FirstName;
-        public string LlastName;
+        public string LastName;
 
         private DateTime dateOfBirth;
+
+        //Konstruktor Person
+        public Person(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
+        //Rozszerzenie konstruktora
+        public Person(DateTime dateOfBirth, string firstName, string lastName) : this(firstName, lastName)
+        {
+            SetDateOfBirth(dateOfBirth);
+        }
 
         public void SetDateOfBirth(DateTime date)
         {
@@ -32,7 +45,7 @@ namespace Klasy
 
         public void SayHi()
         {
-            Console.WriteLine($"Hi, I'm {FirstName}, {GetDateOfBirth()}");
+            Console.WriteLine($"Hi, I'm {FirstName} {LastName}, {GetDateOfBirth()}");
         }
     }
 }
