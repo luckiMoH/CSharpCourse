@@ -11,6 +11,12 @@
             bill.SayHi();
             bill.ContactNumber = "999888777";
             Console.WriteLine(bill.ContactNumber);
+
+            Person john = new Person(new DateTime(2000, 10, 15), "John", "Wick");
+
+            john.SayHi();
+
+            Console.WriteLine(Person.Count);
         }
     }
 }

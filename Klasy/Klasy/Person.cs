@@ -15,6 +15,8 @@ namespace Klasy
 
         public DateTime DateOfBirth { get; set; }
 
+        public static int Count = 0;
+
         private string contactNumber;
 
         public string ContactNumber
@@ -40,6 +42,7 @@ namespace Klasy
         {
             FirstName = firstName;
             LastName = lastName;
+            Count++;
         }
 
         //Rozszerzenie konstruktora
