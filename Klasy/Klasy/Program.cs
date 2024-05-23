@@ -1,4 +1,6 @@
-﻿namespace Klasy
+﻿using ClassLibrary;
+
+namespace Klasy
 {
     class Program
     {
@@ -18,7 +20,9 @@
 
             Console.WriteLine(Person.Count);
 
+            Console.WriteLine("");
             Console.WriteLine("---Dziedziczenie---");
+            Console.WriteLine("");
 
             ExcelFile excelFile = new ExcelFile();
 
@@ -33,6 +37,18 @@
             wordDocumentFile.FileName = "word-file";
 
             wordDocumentFile.Print();
+
+            Console.WriteLine("");
+            Console.WriteLine("---Polimorfizm---");
+            Console.WriteLine("");
+
+            Shape[] shapes = { new Circle(), new Rectangle(), new Triangle() };
+
+            foreach(Shape shape in shapes)
+            {
+                shape.Draw();
+            }
+
         }
     }
 }
