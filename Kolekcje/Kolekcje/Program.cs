@@ -77,7 +77,18 @@ namespace Kolekcje
                 Console.WriteLine("Ed not found");
             }
 
+            Console.WriteLine("LAMBDA");
 
+            List<Person> youngEmployeesLambda = employees.Where(e => e.DateOfBirth > new DateTime(2000,1,1)).ToList();
+            Person dollieLambda = youngEmployees.FirstOrDefault(e => e.FirstName == "Dollie");
+
+            if (dollieLambda != null)
+            {
+                dollieLambda.SayHi();
+            } else
+            {
+                Console.WriteLine("Dollie not found");
+            }
 
 
             Console.WriteLine("************");
