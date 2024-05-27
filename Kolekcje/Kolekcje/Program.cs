@@ -6,6 +6,38 @@ namespace Kolekcje
 {
     class Program
     {
+        public static IEnumerable<int> GetData()
+        {
+            var result = new List<int>();
+            for (int i = 0; i < 10; i++)
+            {
+                result.Add(i);
+            }
+            return result;
+        }
+
+        public static IEnumerable<int> GetYieldedData()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                yield return i;
+                if(i % 3 ==0)
+                {
+                    yield break;
+                }
+            }
+        }
+
+        public static IEnumerable<int> GenerateEvenNumber()
+        {
+            for (int i  = 0; i < 100; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    yield return i;
+                }
+            }
+        }
         public static void Main(string[] args)
         {
 
@@ -56,7 +88,9 @@ namespace Kolekcje
                 Console.WriteLine("Bob not found");
             }
 
+            Console.WriteLine("************");
             Console.WriteLine("LINQ");
+            Console.WriteLine("************");
 
             bool EmployeeIsYoung(Person employee)
             {
@@ -79,7 +113,9 @@ namespace Kolekcje
                 Console.WriteLine("Ed not found");
             }
 
+            Console.WriteLine("************");
             Console.WriteLine("LAMBDA");
+            Console.WriteLine("************");
 
             List<Person> youngEmployeesLambda = employees.Where(e => e.DateOfBirth > new DateTime(2000, 1, 1)).ToList();
             Person dollieLambda = youngEmployees.FirstOrDefault(e => e.FirstName == "Dollie");
@@ -93,7 +129,9 @@ namespace Kolekcje
                 Console.WriteLine("Dollie not found");
             }
 
+            Console.WriteLine("************");
             Console.WriteLine("Słownik - Dictionary - przed refactorem");
+            Console.WriteLine("************");
 
             static List<Currency> GetCurrencies()
             {
@@ -122,7 +160,9 @@ namespace Kolekcje
                 Console.WriteLine("Currency not found");
             }
 
+            Console.WriteLine("************");
             Console.WriteLine("Słownik - Dictionary - po refactorze");
+            Console.WriteLine("************");
 
             static Dictionary<string, Currency> GetCurrenciesDictionary()
             {
@@ -170,38 +210,63 @@ namespace Kolekcje
 
             Console.WriteLine("************");
 
-            //static void DisplayElements(List<int> list)
-            //{
-            //    Console.WriteLine("** List **");
-            //    foreach (int i in list)
-            //    {
-            //        Console.Write($"{i}, ");
-            //    }
+            static void DisplayElements(List<int> list)
+            {
+                Console.WriteLine("** List **");
+                foreach (int i in list)
+                {
+                    Console.Write($"{i}, ");
+                }
 
-            //    Console.WriteLine();
-            //}
+                Console.WriteLine();
+            }
 
-            //int[] intArray = { 1, 2, 3, 4, 5 };
-            //int arrayLenght = intArray.Length;
+            int[] intArray = { 1, 2, 3, 4, 5 };
+            int arrayLenght = intArray.Length;
 
-            //List<int> intList = new List<int>() { 6, 1, 20, 3, 45, 60, 100, 2 };
-            //DisplayElements(intList);
+            List<int> intList = new List<int>() { 6, 1, 20, 3, 45, 60, 100, 2 };
+            DisplayElements(intList);
 
-            //Console.WriteLine("New Element: ");
-            //string userInput = Console.ReadLine();
-            //int intValue = int.Parse(userInput);
+            Console.WriteLine("************");
+            Console.WriteLine("New Element: ");
+            Console.WriteLine("************");
 
-            //intList.Add(intValue);
+            string userInputList = Console.ReadLine();
+            int intValue = int.Parse(userInputList);
 
-            //DisplayElements(intList);
+            intList.Add(intValue);
 
-            //Console.WriteLine("** Remove Range **");
-            //intList.RemoveRange(1, 2);
-            //DisplayElements(intList);
+            DisplayElements(intList);
 
-            //Console.WriteLine("Sort");
-            //intList.Sort();
-            //DisplayElements(intList);
+            Console.WriteLine("************");
+            Console.WriteLine("** Remove Range **");
+            Console.WriteLine("************");
+
+            intList.RemoveRange(1, 2);
+            DisplayElements(intList);
+
+            Console.WriteLine("************");
+            Console.WriteLine("Sort");
+            Console.WriteLine("************");
+
+            intList.Sort();
+            DisplayElements(intList);
+
+            Console.WriteLine("************");
+            Console.WriteLine("zwracanie iteratora - yield");
+            Console.WriteLine("************");
+
+            var yieldedData = GetYieldedData();
+            foreach (int element in yieldedData)
+            {
+                Console.WriteLine(element);
+            }
+
+            var evenNumber = GenerateEvenNumber();
+            foreach (int element in evenNumber)
+            {
+                Console.WriteLine(element);
+            }
 
         }
     }
