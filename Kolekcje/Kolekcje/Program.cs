@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
 using System.Linq;
+using FirstProject;
 
 namespace Kolekcje
 {
     class Program
-    { 
+    {
         public static void Main(string[] args)
         {
 
@@ -29,7 +30,7 @@ namespace Kolekcje
 
             foreach (Person employee in employees)
             {
-                if(employee.DateOfBirth > new DateTime(2000,1,1))
+                if (employee.DateOfBirth > new DateTime(2000, 1, 1))
                 {
                     youngEmployees.Add(employee);
                 }
@@ -49,7 +50,8 @@ namespace Kolekcje
             if (bob != null)
             {
                 bob.SayHi();
-            } else
+            }
+            else
             {
                 Console.WriteLine("Bob not found");
             }
@@ -79,17 +81,92 @@ namespace Kolekcje
 
             Console.WriteLine("LAMBDA");
 
-            List<Person> youngEmployeesLambda = employees.Where(e => e.DateOfBirth > new DateTime(2000,1,1)).ToList();
+            List<Person> youngEmployeesLambda = employees.Where(e => e.DateOfBirth > new DateTime(2000, 1, 1)).ToList();
             Person dollieLambda = youngEmployees.FirstOrDefault(e => e.FirstName == "Dollie");
 
             if (dollieLambda != null)
             {
                 dollieLambda.SayHi();
-            } else
+            }
+            else
             {
                 Console.WriteLine("Dollie not found");
             }
 
+            Console.WriteLine("Słownik - Dictionary - przed refactorem");
+
+            static List<Currency> GetCurrencies()
+            {
+                return new List<Currency>
+                {
+                    new Currency("usd", "United States, Dollar", 1),
+                    new Currency("eur", "Euro", 0.83975),
+                    new Currency("gbp", "British Pound", 0.74771),
+                    new Currency("cad", "Canadian Dollar", 1.30724),
+                    new Currency("inr", "Indian Rupee", 73.04),
+                    new Currency("mxn", "Mexican Peso", 21.7571)
+                };
+            }
+
+            List<Currency> currencies = GetCurrencies();
+            Console.WriteLine("Check the rate for:");
+            string userInput = Console.ReadLine();
+
+            Currency selectedCurrency = currencies.FirstOrDefault(c => c.Name == userInput);
+            if (selectedCurrency != null)
+            {
+                Console.WriteLine($"Rate for USD to {selectedCurrency.FullName} is {selectedCurrency.Rate}");
+            }
+            else
+            {
+                Console.WriteLine("Currency not found");
+            }
+
+            Console.WriteLine("Słownik - Dictionary - po refactorze");
+
+            static Dictionary<string, Currency> GetCurrenciesDictionary()
+            {
+                return new Dictionary<string, Currency>
+                {
+                    {"usd", new Currency("usd", "United States, Dollar", 1) },
+                    { "eur", new Currency("eur", "Euro", 0.83975) },
+                    { "gbp", new Currency("gbp", "British Pound", 0.74771) },
+                    { "cad", new Currency("cad", "Canadian Dollar", 1.30724) },
+                    { "inr", new Currency("inr", "Indian Rupee", 73.04) },
+                    { "mxn", new Currency("mxn", "Mexican Peso", 21.7571) }
+                };
+            }
+
+            Dictionary<string, Currency> currenciesDictionary = GetCurrenciesDictionary();
+
+            //Usuwanie elementów w słowniku
+
+            currenciesDictionary.Remove("usd");
+
+            //dodawanie elementów do słownika
+
+            currenciesDictionary.TryAdd("pln", new Currency("pln", "Polski Złoty", 0.25));
+
+            Console.WriteLine("Check the rate for:");
+            string userInputDictionary = Console.ReadLine();
+
+            Currency selectedCurrencyDictionary = null;
+            if (currenciesDictionary.TryGetValue(userInputDictionary, out selectedCurrencyDictionary))
+            {
+                Console.WriteLine($"Rate for USD to {selectedCurrencyDictionary.FullName} is {selectedCurrencyDictionary.Rate}");
+            }
+            else
+            {
+                Console.WriteLine("Currency not found");
+            }
+
+            //Usuwanie elementów w słowniku
+
+            currenciesDictionary.Remove("usd");
+
+            //dodawanie elementów do słownika
+
+            currenciesDictionary.TryAdd("pln", new Currency("pln", "Polski Złoty", 0.25));
 
             Console.WriteLine("************");
 
@@ -125,7 +202,7 @@ namespace Kolekcje
             //Console.WriteLine("Sort");
             //intList.Sort();
             //DisplayElements(intList);
-            
+
         }
     }
 }
