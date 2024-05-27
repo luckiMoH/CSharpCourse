@@ -87,7 +87,7 @@ namespace Kolekcje
                 dollieLambda.SayHi();
             } else
             {
-                Console.WriteLine("Dollie not found1");
+                Console.WriteLine("Dollie not found");
             }
 
 
