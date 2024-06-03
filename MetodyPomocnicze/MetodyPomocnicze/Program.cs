@@ -7,6 +7,10 @@
             Console.WriteLine("Insert input:");
             string userInput = Console.ReadLine();
 
+
+            string reversed = new string(userInput.Reverse().ToArray());
+            Console.WriteLine(reversed);
+
             //SubString(userInput);
             //Replace(userInput);
             //Modify(userInput);
