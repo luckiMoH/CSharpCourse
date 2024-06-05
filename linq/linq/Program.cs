@@ -46,7 +46,7 @@ namespace FirstProject
 
             foreach (var dto in anonymousDtos)
             {
-                Console.WriteLine(dto.Name + ": " + dto.Reviews);
+                Console.WriteLine(dto.Name + ":  " + dto.Reviews);
             }
 
             //foreach (var dto in dtos)
