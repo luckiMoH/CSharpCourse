@@ -23,8 +23,16 @@ namespace FirstProject
             //Display(googleApps);
             //GetData(googleApps);
             //ProjectData(googleApps);
-            DivideData(googleApps);
-
+            //DivideData(googleApps);
+            OrderData(googleApps);
+        }
+        static void OrderData(IEnumerable<GoogleApp> googleApps)
+        {
+            var highRatedBeautyApps = googleApps.Where(app => app.Rating > 4.4m && app.Category == Category.BEAUTY);
+            var sortedByRating = highRatedBeautyApps.OrderByDescending(app => app.Rating)
+                .ThenByDescending(app => app.Reviews)
+                .Take(5);
+            Display(sortedByRating);
         }
 
         static void DivideData(IEnumerable<GoogleApp> googleApps)
