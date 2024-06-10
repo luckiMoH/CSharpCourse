@@ -27,7 +27,34 @@ namespace FirstProject
             //OrderData(googleApps);
             //DataSetOperation(googleApps);
             //DataVerification(googleApps);
-            GroupData(googleApps);
+            //GroupData(googleApps);
+            GroupDataOperations(googleApps);
+        }
+
+        static void GroupDataOperations(IEnumerable<GoogleApp> googleApps)
+        {
+            var categoryGroup = googleApps
+                .GroupBy(g => g.Category);
+
+            foreach (var group in categoryGroup)
+            {
+                var averageReviews = group.Average(e => e.Reviews);
+                var minReviews = group.Min(e => e.Reviews);
+                var maxReviews = group.Max(e => e.Reviews);
+
+                var summedReviews = group.Sum(e => e.Reviews);
+
+                var allAppsFromGroupHaveRatingMinThree = group.All(e => e.Rating > 3.0m);
+
+                Console.WriteLine($"Category: {group.Key}");
+                Console.WriteLine($"averageReviews: {averageReviews}");
+                Console.WriteLine($"minReviews: {minReviews}");
+                Console.WriteLine($"maxReviews: {maxReviews}");
+                Console.WriteLine($"summedReviews: {summedReviews}");
+                Console.WriteLine($"allAppsFromGroupHaveRatingMinThree: {allAppsFromGroupHaveRatingMinThree}");
+                Console.WriteLine(" ");
+            }
+
         }
 
         public static void GroupData(IEnumerable<GoogleApp> googleApps)
