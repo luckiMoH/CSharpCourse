@@ -24,8 +24,57 @@ namespace FirstProject
             //GetData(googleApps);
             //ProjectData(googleApps);
             //DivideData(googleApps);
-            OrderData(googleApps);
+            //OrderData(googleApps);
+            DataSetOperation(googleApps);
         }
+
+        static void DataSetOperation(IEnumerable<GoogleApp> googleApps)
+        {
+            // Distinct() - wyrzuca powtarzane elementy
+            var paidAppsCategories = googleApps.Where(a => a.Type == Type.Paid) 
+                .Select(a => a.Category).Distinct();
+
+            var setA = googleApps.Where(a => a.Rating > 4.7m && a.Type == Type.Paid && a.Reviews > 1000);
+            var setB = googleApps.Where(a => a.Name.Contains("Pro") && a.Rating > 4.6m && a.Reviews > 10000);
+
+            Display(setA);
+            Console.WriteLine("");
+            Console.WriteLine("******");
+            Console.WriteLine("");
+            Display(setB);
+            Console.WriteLine("");
+            Console.WriteLine("******");
+            Console.WriteLine("Union: ");
+
+            // Union() - łączy nam oba zbiory
+
+            var unionOperator = setA.Union(setB);
+
+            Display(unionOperator);
+            Console.WriteLine("");
+            Console.WriteLine("******");
+            Console.WriteLine("Intersect: ");
+
+            // Intersect - zwraca nam wspólną część dwoch zbiorów
+
+            var intersectOperator = setA.Intersect(setB);
+
+            Display(intersectOperator);
+            Console.WriteLine("");
+            Console.WriteLine("******");
+            Console.WriteLine("Except: ");
+
+            // Except() - zwraca nam zbior bez elementów drugiego zbioru
+
+            var exceptOperator = setA.Except(setB);
+            Display(exceptOperator);
+            Console.WriteLine("");
+            Console.WriteLine("******");
+            Console.WriteLine("");
+
+            //Console.WriteLine($"Paid apps categories: {string.Join(", ", paidAppsCategories)}");
+        }
+
         static void OrderData(IEnumerable<GoogleApp> googleApps)
         {
             var highRatedBeautyApps = googleApps.Where(app => app.Rating > 4.4m && app.Category == Category.BEAUTY);
