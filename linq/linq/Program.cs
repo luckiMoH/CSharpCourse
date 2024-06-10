@@ -26,7 +26,26 @@ namespace FirstProject
             //DivideData(googleApps);
             //OrderData(googleApps);
             //DataSetOperation(googleApps);
-            DataVerification(googleApps);
+            //DataVerification(googleApps);
+            GroupData(googleApps);
+        }
+
+        public static void GroupData(IEnumerable<GoogleApp> googleApps)
+        {
+            var categoryGroup = googleApps.GroupBy(g => new { g.Category, g.Type });
+
+            foreach (var group in categoryGroup)
+            {
+                //var apps = artAndDesignGroup.Select(e => e)
+                var apps = group.ToList();
+                Console.WriteLine(" ");
+                Console.WriteLine($"Displaying elements for group {group.Key.Category}, {group.Key.Type}");
+                Console.WriteLine(" ");
+                Display(apps);
+            }
+
+            //var artAndDesignGroup = categoryGroup.First(g => g.Key == Category.ART_AND_DESIGN);
+
         }
 
         static void DataVerification(IEnumerable<GoogleApp> googleApps)
@@ -45,7 +64,7 @@ namespace FirstProject
         static void DataSetOperation(IEnumerable<GoogleApp> googleApps)
         {
             // Distinct() - wyrzuca powtarzane elementy
-            var paidAppsCategories = googleApps.Where(a => a.Type == Type.Paid) 
+            var paidAppsCategories = googleApps.Where(a => a.Type == Type.Paid)
                 .Select(a => a.Category).Distinct();
 
             var setA = googleApps.Where(a => a.Rating > 4.7m && a.Type == Type.Paid && a.Reviews > 1000);
@@ -157,8 +176,8 @@ namespace FirstProject
 
         static void GetData(IEnumerable<GoogleApp> googleApps)
         {
-            var highRatedApps = googleApps.Where( app => app.Rating > 4.6m);
-            var highRatedBeautyApps = googleApps.Where(app => app.Rating >4.6m && app.Category == Category.BEAUTY );
+            var highRatedApps = googleApps.Where(app => app.Rating > 4.6m);
+            var highRatedBeautyApps = googleApps.Where(app => app.Rating > 4.6m && app.Category == Category.BEAUTY);
             Display(highRatedBeautyApps);
 
             var firstHighRatedBeautyApp = highRatedBeautyApps.SingleOrDefault(app => app.Reviews < 30);
